@@ -1,0 +1,26 @@
+#!/bin/bash
+
+if [[ $# -eq 0 ]]; then
+    echo "usage: $0 color text"
+    exit 1
+fi
+
+if [[ $# -eq 1 ]]; then
+    echo $1
+    exit 0
+fi
+
+declare -A colors
+
+colors=(["black"]="30"
+        ["red"]="31"
+        ["green"]="32"
+        ["yellow"]="33"
+        ["blue"]="34"
+        ["magenta"]="35"
+        ["cyan"]="36"
+        ["white"]="97"
+       )
+
+output=${@:2:$#}
+echo -e "\e[${colors[$1]}m$output\e[0m"
