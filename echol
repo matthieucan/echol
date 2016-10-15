@@ -22,5 +22,11 @@ colors=(["black"]="30"
         ["white"]="97"
        )
 
-output=${@:2:$#}
-echo -e "\e[${colors[$1]}m$output\e[0m"
+color=${colors[$1]}
+
+if [[ $color -eq "" ]]; then
+    echo $@
+else
+    output=${@:2:$#}
+    echo -e "\e[${color}m$output\e[0m"
+fi
