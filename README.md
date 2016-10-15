@@ -17,6 +17,12 @@ echol COLOR TEXT
 
 Examples:
 ```
-echol red This is is warning
-echol green Everything works
+$ echol red This is is warning
+$ echol green Everything works
+```
+
+When a wrong color name is supplied, it becomes part of the output:
+```
+$ echol gren what is gren anway
+gren what is gren anway
 ```
